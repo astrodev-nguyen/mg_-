@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Morning Green</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --ink: #1d4a2e;
+      --forest: #1a3f28;
+      --moss: #2e6040;
+      --leaf: #74b88a;
+      --mist: #a8d4b4;
+      --dew: #d4eedd;
+      --gold: #c8a96e;
+      --gold2: #e2c896;
+      --cream: #f5f0e8;
+      --txt: #e8f0ea;
+      --sub: rgba(200, 230, 210, .55);
+      --card-bg: rgba(255, 255, 255, .06);
+      --card-bd: rgba(255, 255, 255, .12);
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background: var(--ink);
+      color: var(--txt);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* grain */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.032'/%3E%3C/svg%3E");
+      opacity: .38;
+    }
+
+    /* ambient blobs */
+    .ambient {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px)
+    }
+
+    .b1 {
+      width: 600px;
+      height: 600px;
+      background: #2d7a4a;
+      top: -200px;
+      left: -180px;
+      opacity: .35;
+      animation: dr 22s ease-in-out infinite alternate
+    }
+
+    .b2 {
+      width: 480px;
+      height: 480px;
+      background: #1e5c35;
+      bottom: -140px;
+      right: -140px;
+      opacity: .4;
+      animation: dr 26s ease-in-out infinite alternate-reverse
+    }
+
+    .b3 {
+      width: 240px;
+      height: 240px;
+      background: #d4a857;
+      top: 30%;
+      right: 2%;
+      opacity: .12;
+      animation: dr 18s ease-in-out infinite alternate
+    }
+
+    @keyframes dr {
+      0% {
+        transform: translate(0, 0) scale(1)
+      }
+
+      100% {
+        transform: translate(20px, 30px) scale(1.07)
+      }
+    }
+
+    /* root layout — strict single screen */
+    .page {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+      height: 100dvh;
+      padding: 0 18px env(safe-area-inset-bottom, 12px);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ── topbar ── */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: max(16px, env(safe-area-inset-top));
+      padding-bottom: 10px;
+      flex-shrink: 0;
+    }
+
+    .site-mark {
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 4.5px;
+      text-transform: uppercase;
+      color: var(--mist);
+      opacity: .5;
+    }
+
+    .ls {
+      display: flex;
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 5px;
+      overflow: hidden
+    }
+
+    .ls button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 5px 13px;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(200, 230, 210, .35);
+      transition: all .25s;
+    }
+
+    .ls button.on {
+      background: rgba(200, 230, 210, .075);
+      color: var(--dew)
+    }
+
+    .ls button:first-child {
+      border-right: 1px solid rgba(255, 255, 255, .1)
+    }
+
+    /* ── hero ── */
+    .hero {
+      text-align: center;
+      padding: 8px 0 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, .055);
+      margin-bottom: 10px;
+      flex-shrink: 0;
+    }
+
+    .leaf-svg {
+      display: inline-block;
+      margin-bottom: 6px;
+      animation: sway 7s ease-in-out infinite;
+      transform-origin: bottom center
+    }
+
+    .leaf-svg svg {
+      width: 26px;
+      height: 26px;
+      display: block
+    }
+
+    @keyframes sway {
+
+      0%,
+      100% {
+        transform: rotate(-5deg) translateY(0)
+      }
+
+      50% {
+        transform: rotate(5deg) translateY(-5px)
+      }
+    }
+
+    .brand-name {
+      font-weight: 700;
+      font-size: clamp(28px, 8.5vw, 44px);
+      letter-spacing: -.8px;
+      line-height: .95;
+      background: linear-gradient(150deg, var(--dew) 0%, var(--mist) 38%, var(--gold2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 3px;
+      animation: fu .8s ease both;
+    }
+
+    .brand-tag {
+      font-size: 8.5px;
+      font-weight: 300;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: .65;
+      margin-bottom: 8px;
+      animation: fu .8s .08s ease both;
+    }
+
+    .gold-rule {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 120px;
+      margin: 0 auto 8px;
+      animation: fu .8s .13s ease both;
+    }
+
+    .gold-rule::before,
+    .gold-rule::after {
+      content: '';
+      flex: 1;
+      height: .5px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent)
+    }
+
+    .gold-rule .dot {
+      width: 3px;
+      height: 3px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+      opacity: .75
+    }
+
+    .slogan {
+      animation: fu .8s .17s ease both
+    }
+
+    .slogan p {
+      font-size: 11.5px;
+      font-weight: 300;
+      line-height: 1.55;
+      color: rgba(216, 238, 222, .72);
+      letter-spacing: .15px
+    }
+
+    .slogan .s2 {
+      font-size: 10px;
+      font-weight: 200;
+      font-style: italic;
+      color: var(--sub);
+      margin-top: 3px
+    }
+
+
+    /* ── section label ── */
+    .sh {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 7px;
+      flex-shrink: 0
+    }
+
+    .sh .l {
+      flex: 1;
+      height: .5px;
+      background: rgba(255, 255, 255, .075)
+    }
+
+    .sh span {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: .8;
+      white-space: nowrap
+    }
+
+    /* ── cards ── */
+    .cards {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      justify-content: space-between;
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 0 13px;
+      height: calc((100% - 4px) / 5);
+      border-radius: 12px;
+      text-decoration: none;
+      border: 1px solid var(--card-bd);
+      background: var(--card-bg);
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s cubic-bezier(.22, .68, 0, 1.15), border-color .22s, background .22s;
+      animation: fu .55s ease both;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent, rgba(255, 255, 255, .032), transparent);
+      transform: translateX(-120%);
+      transition: transform .5s ease;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 18%;
+      bottom: 18%;
+      width: 2px;
+      border-radius: 2px;
+      opacity: 0;
+      transition: opacity .28s;
+    }
+
+    .card:hover {
+      transform: translateY(-2px) scale(1.006);
+      border-color: rgba(255, 255, 255, .13);
+      background: rgba(255, 255, 255, .048)
+    }
+
+    .card:hover::before {
+      transform: translateX(120%)
+    }
+
+    .card:hover::after {
+      opacity: 1
+    }
+
+    .card:active {
+      transform: scale(.975)
+    }
+
+    .ci {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .ci svg {
+      width: 17px;
+      height: 17px;
+      fill: #fff
+    }
+
+    .ci-fb {
+      background: linear-gradient(145deg, #2563d4, #1344a8)
+    }
+
+    .ci-ig {
+      background: linear-gradient(145deg, #e84c7e, #832fb3)
+    }
+
+    .ci-zl {
+      background: linear-gradient(145deg, #1a78e8, #0f52c0);
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -.5px
+    }
+
+    .ci-wa {
+      background: linear-gradient(145deg, #22c55e, #158c42)
+    }
+
+    .ci-ph {
+      background: linear-gradient(145deg, #c8a96e, #a07c44)
+    }
+
+    .ct {
+      flex: 1;
+      min-width: 0
+    }
+
+    .cn {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--txt);
+      letter-spacing: .15px;
+      line-height: 1
+    }
+
+    .cd {
+      font-size: 10px;
+      font-weight: 200;
+      color: var(--sub);
+      letter-spacing: .1px;
+      margin-top: 2px
+    }
+
+    .ca {
+      width: 21px;
+      height: 21px;
+      flex-shrink: 0;
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: rgba(255, 255, 255, .25);
+      transition: all .22s;
+    }
+
+    .card:hover .ca {
+      border-color: rgba(255, 255, 255, .18);
+      color: rgba(255, 255, 255, .5)
+    }
+
+    .c-fb::after {
+      background: #2563d4
+    }
+
+    .c-ig::after {
+      background: #e84c7e
+    }
+
+    .c-zl::after {
+      background: #1a78e8
+    }
+
+    .c-wa::after {
+      background: #22c55e
+    }
+
+    .c-ph::after {
+      background: var(--gold)
+    }
+
+    .cards .card:nth-child(1) {
+      animation-delay: .06s
+    }
+
+    .cards .card:nth-child(2) {
+      animation-delay: .11s
+    }
+
+    .cards .card:nth-child(3) {
+      animation-delay: .16s
+    }
+
+    .cards .card:nth-child(4) {
+      animation-delay: .21s
+    }
+
+    .cards .card:nth-child(5) {
+      animation-delay: .26s
+    }
+
+    /* ── footer ── */
+    .footer {
+      padding: 7px 0 max(10px, env(safe-area-inset-bottom));
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, .05);
+      flex-shrink: 0;
+    }
+
+    .fn {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, var(--mist), var(--gold2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 2px;
+    }
+
+    .ft {
+      font-size: 9px;
+      font-weight: 200;
+      color: var(--sub);
+      font-style: italic;
+      margin-bottom: 2px
+    }
+
+    .fc {
+      font-size: 8.5px;
+      color: rgba(255, 255, 255, .15);
+      letter-spacing: .8px
+    }
+
+    @keyframes fu {
+      from {
+        opacity: 0;
+        transform: translateY(12px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    [data-l="vi"] .ten {
+      display: none
+    }
+
+    [data-l="en"] .tvi {
+      display: none
+    }
+
+    /* very small phones */
+    @media(max-height:640px) {
+      .hero {
+        padding: 4px 0 6px;
+        margin-bottom: 6px
+      }
+
+      .ph-strip {
+        padding: 7px 12px;
+        margin-bottom: 6px
+      }
+
+      .ph-num {
+        font-size: 16px
+      }
+
+      .slogan .s2 {
+        display: none
+      }
+
+      .footer {
+        padding: 5px 0
+      }
+    }
+
+    @media(max-width:360px) {
+      .brand-name {
+        font-size: 26px
+      }
+
+      .page {
+        padding: 0 14px
+      }
+
+      .card {
+        padding: 0 11px
+      }
+    }
+  </style>
+</head>
+
+<body data-l="vi">
+  <div class="ambient">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+
+  <div class="page">
+
+    <!-- topbar -->
+    <div class="topbar">
+      <span class="site-mark">Morning Green</span>
+      <div class="ls">
+        <button id="bVi" class="on" onclick="setL('vi')">VN</button>
+        <button id="bEn" onclick="setL('en')">EN</button>
+      </div>
+    </div>
+
+    <!-- hero -->
+    <section class="hero">
+      <div class="leaf-svg">
+        <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="30" cy="22" rx="18" ry="11" transform="rotate(-35 30 22)" fill="#2e6040" opacity=".85" />
+          <ellipse cx="30" cy="22" rx="18" ry="11" transform="rotate(-35 30 22)" fill="url(#lg1)" opacity=".65" />
+          <path d="M13 40 Q23 27 39 13" stroke="#74b88a" stroke-width="1.1" stroke-linecap="round" opacity=".75" />
+          <path d="M21 33 Q27 26 35 19" stroke="#a8d4b4" stroke-width=".7" stroke-linecap="round" opacity=".45" />
+          <defs>
+            <linearGradient id="lg1" x1="10" y1="34" x2="48" y2="10" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#4d8c62" />
+              <stop offset="100%" stop-color="#a8d4b4" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <h1 class="brand-name">Morning Green</h1>
+      <p class="brand-tag tvi">Thức uống thiên nhiên</p>
+      <p class="brand-tag ten">Natural Wellness Drinks</p>
+      <div class="gold-rule">
+        <div class="dot"></div>
+      </div>
+      <div class="slogan">
+        <p class="tvi">Thức uống rau củ quả nguyên chất · Tiếp năng lượng xanh mỗi ngày</p>
+        <p class="ten">Pure fruit &amp; vegetable drinks · Green energy every day</p>
+        <p class="s2 tvi">Từ thiên nhiên đến tay bạn – tươi ngon mỗi sáng</p>
+        <p class="s2 ten">From nature to your hands – fresh every morning</p>
+      </div>
+    </section>
+
+    <!-- spacer replacing phone strip -->
+    <div style="height:52px;flex-shrink:0;"></div>
+
+    <!-- section label + cards -->
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column">
+      <div class="sh">
+        <div class="l"></div>
+        <span class="tvi">Liên hệ</span>
+        <span class="ten">Contact</span>
+        <div class="l"></div>
+      </div>
+
+      <div class="cards">
+
+        <a href="https://www.facebook.com/morninggreenvn" target="_blank" rel="noopener" class="card c-fb">
+          <div class="ci ci-fb"><svg viewBox="0 0 24 24">
+              <path
+                d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
+            </svg></div>
+          <div class="ct">
+            <div class="cn">Facebook</div>
+            <div class="cd tvi">Theo dõi trang chính thức</div>
+            <div class="cd ten">Follow our official page</div>
+          </div>
+          <div class="ca">›</div>
+        </a>
+
+        <a href="https://www.instagram.com/morninggreen.vn/" target="_blank" rel="noopener" class="card c-ig">
+          <div class="ci ci-ig"><svg viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+            </svg></div>
+          <div class="ct">
+            <div class="cn">Instagram</div>
+            <div class="cd tvi">Xem hình ảnh sản phẩm</div>
+            <div class="cd ten">View our product photos</div>
+          </div>
+          <div class="ca">›</div>
+        </a>
+
+        <a href="https://zalo.me/0839761494" target="_blank" rel="noopener" class="card c-zl">
+          <div class="ci ci-zl">Za</div>
+          <div class="ct">
+            <div class="cn">Zalo</div>
+            <div class="cd tvi">Nhắn tin &amp; đặt hàng nhanh</div>
+            <div class="cd ten">Quick message &amp; order</div>
+          </div>
+          <div class="ca">›</div>
+        </a>
+
+        <a href="https://wa.me/84839761494" target="_blank" rel="noopener" class="card c-wa">
+          <div class="ci ci-wa"><svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg></div>
+          <div class="ct">
+            <div class="cn">WhatsApp</div>
+            <div class="cd tvi">Liên hệ quốc tế</div>
+            <div class="cd ten">International contact</div>
+          </div>
+          <div class="ca">›</div>
+        </a>
+
+        <a href="tel:0839761494" class="card c-ph">
+          <div class="ci ci-ph"><svg viewBox="0 0 24 24" fill="#fff">
+              <path
+                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+            </svg></div>
+          <div class="ct">
+            <div class="cn tvi">Gọi điện</div>
+            <div class="cn ten">Call us</div>
+            <div class="cd tvi">Gọi trực tiếp ngay bây giờ</div>
+            <div class="cd ten">Call us directly right now</div>
+          </div>
+          <div class="ca">›</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+      <div class="fn">Morning Green</div>
+      <p class="ft tvi">Từ thiên nhiên đến tay bạn</p>
+      <p class="ft ten">From nature to your hands</p>
+      <p class="fc">© 2026 Morning Green</p>
+    </div>
+
+  </div>
+
+  <script>
+    function setL(l) {
+      document.body.dataset.l = l;
+      document.getElementById('bVi').className = l === 'vi' ? 'on' : '';
+      document.getElementById('bEn').className = l === 'en' ? 'on' : '';
+      document.documentElement.lang = l;
+    }
+  </script>
+</body>
+
+</html>
