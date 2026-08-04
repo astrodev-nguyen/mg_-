@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta
+      name="description"
+      content="Menu Morning Green gồm 12 món sinh tố và 7 món nước ép; 14 sản phẩm đã có hình ảnh thực tế."
+    >
+    <meta name="theme-color" content="#01511e">
+    <title>Morning Green — Menu nước</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="menu.js" defer></script>
+  </head>
+  <body class="menu-page">
+    <a class="skip-link" href="#drink-menu">
+      <span class="lang-vi">Đi đến menu nước</span>
+      <span class="lang-en" lang="en">Skip to drink menu</span>
+      <span class="lang-zh" lang="zh-Hans">跳至饮品菜单</span>
+    </a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a
+          class="brand"
+          href="index.html#top"
+          aria-label="Morning Green — trang chủ"
+          data-aria-vi="Morning Green — trang chủ"
+          data-aria-en="Morning Green — home"
+          data-aria-zh="Morning Green — 首页"
+        >
+          <span class="logo-badge" aria-hidden="true">
+            <img
+              src="assets/morning-green-logo-160.png"
+              width="160"
+              height="160"
+              alt=""
+            >
+          </span>
+          <span class="brand-copy">
+            <strong>Morning Green</strong>
+            <small>
+              <span class="lang-vi">Sinh tố rau tươi</span>
+              <span class="lang-en" lang="en">Fresh green smoothies</span>
+              <span class="lang-zh" lang="zh-Hans">新鲜蔬果昔</span>
+            </small>
+          </span>
+        </a>
+
+        <div class="language-switcher" role="group" aria-label="Ngôn ngữ / Language / 语言">
+          <button
+            class="language-button is-active"
+            type="button"
+            data-language="vi"
+            aria-label="Tiếng Việt"
+            aria-pressed="true"
+          >
+            VI
+          </button>
+          <button
+            class="language-button"
+            type="button"
+            data-language="en"
+            aria-label="English"
+            aria-pressed="false"
+          >
+            EN
+          </button>
+          <button
+            class="language-button language-button-zh"
+            type="button"
+            data-language="zh"
+            aria-label="简体中文"
+            aria-pressed="false"
+          >
+            中文
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="drink-menu menu-page-section" id="drink-menu" aria-labelledby="menu-title">
+        <div class="container">
+          <header class="menu-header">
+            <a class="menu-back" href="index.html">
+              <span aria-hidden="true">←</span>
+              <span class="lang-vi">Về trang liên hệ</span>
+              <span class="lang-en" lang="en">Back to contact</span>
+              <span class="lang-zh" lang="zh-Hans">返回联系页面</span>
+            </a>
+            <p class="menu-kicker">
+              <span class="leaf-mark" aria-hidden="true"></span>
+              <span class="lang-vi">14 sản phẩm đã có hình · 5 món sắp ra mắt</span>
+              <span class="lang-en" lang="en">14 products pictured · 5 coming soon</span>
+              <span class="lang-zh" lang="zh-Hans">14 款已有实拍 · 5 款即将推出</span>
+            </p>
+            <div class="menu-heading-row">
+              <h1 id="menu-title">
+                <span class="lang-vi">Menu nước</span>
+                <span class="lang-en" lang="en">Drink menu</span>
+                <span class="lang-zh" lang="zh-Hans">饮品菜单</span>
+              </h1>
+              <p>
+                <span class="lang-vi">Chạm vào từng món để xem mô tả và thành phần.</span>
+                <span class="lang-en" lang="en">Tap a drink to view its description and ingredients.</span>
+                <span class="lang-zh" lang="zh-Hans">点击饮品查看介绍与配料。</span>
+              </p>
+            </div>
+          </header>
+
+          <div
+            class="menu-sort"
+            role="group"
+            aria-label="Sắp xếp menu / Sort menu / 菜单排序"
+          >
+            <span class="menu-sort-label">
+              <span class="lang-vi">Sắp xếp:</span>
+              <span class="lang-en" lang="en">Sort:</span>
+              <span class="lang-zh" lang="zh-Hans">排序：</span>
+            </span>
+            <div class="menu-sort-options">
+              <button class="menu-sort-button" type="button" data-sort="name-asc" aria-pressed="false">
+                <span class="lang-vi">Tên A → Z</span>
+                <span class="lang-en" lang="en">Name A → Z</span>
+                <span class="lang-zh" lang="zh-Hans">名称 A → Z</span>
+              </button>
+              <button class="menu-sort-button" type="button" data-sort="name-desc" aria-pressed="false">
+                <span class="lang-vi">Tên Z → A</span>
+                <span class="lang-en" lang="en">Name Z → A</span>
+                <span class="lang-zh" lang="zh-Hans">名称 Z → A</span>
+              </button>
+              <button class="menu-sort-button" type="button" data-sort="price-asc" aria-pressed="false">
+                <span class="lang-vi">Giá tăng dần</span>
+                <span class="lang-en" lang="en">Price low to high</span>
+                <span class="lang-zh" lang="zh-Hans">价格升序</span>
+              </button>
+              <button class="menu-sort-button" type="button" data-sort="price-desc" aria-pressed="false">
+                <span class="lang-vi">Giá giảm dần</span>
+                <span class="lang-en" lang="en">Price high to low</span>
+                <span class="lang-zh" lang="zh-Hans">价格降序</span>
+              </button>
+              <button
+                class="menu-sort-button is-active"
+                type="button"
+                data-sort="newest"
+                aria-pressed="true"
+              >
+                <span class="lang-vi">Theo mã</span>
+                <span class="lang-en" lang="en">Product code</span>
+                <span class="lang-zh" lang="zh-Hans">产品编号</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="menu-groups">
+            <section class="menu-group" aria-labelledby="smoothie-title">
+              <header class="menu-group-header">
+                <h2 id="smoothie-title">
+                  <span class="lang-vi">Sinh tố</span>
+                  <span class="lang-en" lang="en">Smoothies</span>
+                  <span class="lang-zh" lang="zh-Hans">果蔬昔</span>
+                </h2>
+                <span class="menu-count">
+                  <span class="lang-vi">12 món · 2 sắp ra mắt</span>
+                  <span class="lang-en" lang="en">12 items · 2 coming soon</span>
+                  <span class="lang-zh" lang="zh-Hans">12 款 · 2 款即将推出</span>
+                </span>
+              </header>
+              <ol class="menu-list" id="smoothie-list"></ol>
+            </section>
+
+            <section class="menu-group" aria-labelledby="juice-title">
+              <header class="menu-group-header">
+                <h2 id="juice-title">
+                  <span class="lang-vi">Nước ép</span>
+                  <span class="lang-en" lang="en">Juices</span>
+                  <span class="lang-zh" lang="zh-Hans">鲜榨果蔬汁</span>
+                </h2>
+                <span class="menu-count">
+                  <span class="lang-vi">7 món · 3 sắp ra mắt</span>
+                  <span class="lang-en" lang="en">7 items · 3 coming soon</span>
+                  <span class="lang-zh" lang="zh-Hans">7 款 · 3 款即将推出</span>
+                </span>
+              </header>
+              <ol class="menu-list" id="juice-list"></ol>
+            </section>
+          </div>
+
+          <p class="menu-disclaimer">
+            <span class="lang-vi">Tên và thành phần được đối chiếu từ bộ nhãn chính thức. Giá hiện là giá mẫu; vui lòng liên hệ để xác nhận.</span>
+            <span class="lang-en" lang="en">Names and ingredients follow the official labels. Prices are samples; please contact us to confirm.</span>
+            <span class="lang-zh" lang="zh-Hans">品名与配料依据正式标签；当前价格为示例，请联系我们确认。</span>
+          </p>
+        </div>
+      </section>
+
+      <section class="menu-order" aria-labelledby="menu-order-title">
+        <div class="container menu-order-inner">
+          <div>
+            <p class="menu-order-kicker">
+              <span class="lang-vi">Đặt món cùng Morning Green</span>
+              <span class="lang-en" lang="en">Order from Morning Green</span>
+              <span class="lang-zh" lang="zh-Hans">向 Morning Green 下单</span>
+            </p>
+            <h2 id="menu-order-title">
+              <span class="lang-vi">Bạn đã chọn được món mình thích?</span>
+              <span class="lang-en" lang="en">Found your favorite drink?</span>
+              <span class="lang-zh" lang="zh-Hans">选好你喜欢的饮品了吗？</span>
+            </h2>
+          </div>
+          <div class="menu-order-actions">
+            <a
+              class="menu-order-primary"
+              href="https://zalo.me/0839761494"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="lang-vi">Đặt qua Zalo</span>
+              <span class="lang-en" lang="en">Order via Zalo</span>
+              <span class="lang-zh" lang="zh-Hans">通过 Zalo 下单</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+            <a class="menu-order-phone" href="tel:+84839761494">
+              <span class="lang-vi">Gọi 0839 761 494</span>
+              <span class="lang-en" lang="en">Call 0839 761 494</span>
+              <span class="lang-zh" lang="zh-Hans">致电 0839 761 494</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <dialog
+      class="product-dialog"
+      id="product-dialog"
+      aria-labelledby="product-dialog-name"
+      aria-describedby="product-dialog-description product-dialog-ingredients product-dialog-note"
+    >
+      <div class="product-dialog-shell">
+        <button
+          class="product-dialog-close"
+          type="button"
+          data-dialog-close
+          aria-label="Đóng thông tin sản phẩm"
+          data-aria-vi="Đóng thông tin sản phẩm"
+          data-aria-en="Close product details"
+          data-aria-zh="关闭产品详情"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+
+        <div class="product-dialog-grid">
+          <figure class="product-dialog-media">
+            <img id="product-dialog-image" alt="">
+          </figure>
+
+          <div class="product-dialog-content">
+            <div class="product-dialog-meta">
+              <p class="product-dialog-category" id="product-dialog-category"></p>
+              <span class="product-dialog-code" id="product-dialog-code"></span>
+            </div>
+            <h2 id="product-dialog-name"></h2>
+            <p class="product-dialog-price" id="product-dialog-price"></p>
+            <p class="product-dialog-description" id="product-dialog-description"></p>
+            <div class="product-dialog-ingredients-block">
+              <p class="product-dialog-ingredients-label" id="product-dialog-ingredients-label"></p>
+              <p class="product-dialog-ingredients" id="product-dialog-ingredients"></p>
+            </div>
+            <p class="product-dialog-note" id="product-dialog-note"></p>
+
+            <div class="product-dialog-actions">
+              <a
+                class="product-dialog-primary"
+                id="product-dialog-primary"
+                href="https://zalo.me/0839761494"
+                target="_blank"
+                rel="noopener noreferrer"
+              ></a>
+              <button class="product-dialog-secondary" type="button" data-dialog-close>
+                <span class="lang-vi">Tiếp tục xem menu</span>
+                <span class="lang-en" lang="en">Continue browsing</span>
+                <span class="lang-zh" lang="zh-Hans">继续浏览菜单</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>
+          <strong>Morning Green</strong>
+          <span>
+            <span class="lang-vi">Tươi mỗi sáng.</span>
+            <span class="lang-en" lang="en">Fresh every morning.</span>
+            <span class="lang-zh" lang="zh-Hans">每日清晨，新鲜呈现。</span>
+          </span>
+        </p>
+        <p>© <span id="year">2026</span> Morning Green</p>
+      </div>
+    </footer>
+  </body>
+</html>
