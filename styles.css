@@ -29,6 +29,8 @@
 html {
   scroll-behavior: smooth;
   background: var(--green-800);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -739,7 +741,12 @@ html[lang^="zh"] .lang-en {
 }
 
 @media (max-width: 519px) {
+  .site-header {
+    padding-top: max(14px, env(safe-area-inset-top));
+  }
+
   .header-inner {
+    min-height: 70px;
     gap: 10px;
   }
 
@@ -776,6 +783,40 @@ html[lang^="zh"] .lang-en {
   .language-button-zh {
     min-width: 43px;
     white-space: nowrap;
+  }
+
+  .contact-landing {
+    padding: 46px 0 64px;
+  }
+
+  .eyebrow {
+    margin-bottom: 18px;
+    font-size: 0.76rem;
+    line-height: 1.45;
+  }
+
+  .brand-message h1 {
+    max-width: 14ch;
+    font-size: clamp(2.2rem, 9.4vw, 2.55rem);
+    letter-spacing: -0.028em;
+    line-height: 1.08;
+  }
+
+  .intro {
+    margin-top: 22px;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .menu-note {
+    margin-top: 20px;
+    padding-top: 16px;
+  }
+
+  .contact-card-heading h2 {
+    font-size: 1.7rem;
+    letter-spacing: -0.025em;
+    line-height: 1.18;
   }
 }
 
