@@ -1,5 +1,4 @@
 (() => {
-  const languageButtons = Array.from(document.querySelectorAll("[data-language]"));
   const description = document.querySelector('meta[name="description"]');
   const year = document.querySelector("#year");
 
@@ -21,37 +20,19 @@
     },
   };
 
-  const setLanguage = (language) => {
-    const nextLanguage = ["vi", "en", "zh"].includes(language) ? language : "vi";
-    const languageTag = nextLanguage === "zh" ? "zh-Hans" : nextLanguage;
-    const dataSuffix = { vi: "Vi", en: "En", zh: "Zh" }[nextLanguage];
-
-    document.documentElement.lang = languageTag;
+  const updatePageMetadata = (language) => {
+    const nextLanguage = metadata[language] ? language : "vi";
     document.title = metadata[nextLanguage].title;
     description?.setAttribute("content", metadata[nextLanguage].description);
-
-    languageButtons.forEach((button) => {
-      const isActive = button.dataset.language === nextLanguage;
-      button.classList.toggle("is-active", isActive);
-      button.setAttribute("aria-pressed", String(isActive));
-    });
-
-    document.querySelectorAll("[data-aria-vi]").forEach((element) => {
-      const label = element.dataset[`aria${dataSuffix}`];
-
-      if (label) {
-        element.setAttribute("aria-label", label);
-      }
-    });
   };
 
-  languageButtons.forEach((button) => {
-    button.addEventListener("click", () => setLanguage(button.dataset.language));
+  document.addEventListener("morninggreen:languagechange", (event) => {
+    updatePageMetadata(event.detail.language);
   });
 
   if (year) {
     year.textContent = String(new Date().getFullYear());
   }
 
-  setLanguage("vi");
+  updatePageMetadata(window.MorningGreenCommon?.getLanguage() ?? "vi");
 })();

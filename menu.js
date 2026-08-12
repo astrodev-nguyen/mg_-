@@ -3,16 +3,16 @@
     vi: {
       title: "Morning Green — Menu nước",
       description:
-        "Menu Morning Green gồm 12 món sinh tố và 7 món nước ép; 14 sản phẩm đã có hình ảnh thực tế.",
+        "Menu Morning Green gồm 19 sản phẩm với hình ảnh nhãn chai chính thức.",
     },
     en: {
       title: "Morning Green — Drink menu",
       description:
-        "Morning Green menu with 12 smoothies and 7 juices, including 14 products with real photos.",
+        "Morning Green menu with official bottle-label imagery for all 19 products.",
     },
     zh: {
       title: "Morning Green — 饮品菜单",
-      description: "Morning Green 饮品菜单：12 款果蔬昔、7 款鲜榨果蔬汁，14 款已有实拍图。",
+      description: "Morning Green 饮品菜单包含 19 款产品及官方瓶身标签图片。",
     },
   };
 
@@ -22,7 +22,7 @@
       category: "smoothie",
       status: "coming",
       price: null,
-      image: "assets/products/coming-soon.svg",
+      image: null,
       name: { vi: "Gọn Bụng Nhẹ Tênh", en: "Purely Light", zh: "轻盈清爽" },
       ingredients: {
         vi: "Bó xôi, lê, dưa leo, cần tây, chanh",
@@ -220,7 +220,7 @@
       category: "smoothie",
       status: "coming",
       price: null,
-      image: "assets/products/coming-soon.svg",
+      image: null,
       name: { vi: "Dưỡng Dáng Êm Bụng", en: "Calm & Shape", zh: "温和轻盈" },
       ingredients: {
         vi: "Sữa yến mạch, sữa chua, xoài, chuối, bí ngòi, hạt chia",
@@ -256,7 +256,7 @@
       category: "juice",
       status: "coming",
       price: null,
-      image: "assets/products/coming-soon.svg",
+      image: null,
       name: { vi: "Táo Khoẻ Đẹp Da", en: "Apple Glow", zh: "苹果焕彩" },
       ingredients: {
         vi: "Táo, cam, cà rốt",
@@ -292,7 +292,7 @@
       category: "juice",
       status: "coming",
       price: null,
-      image: "assets/products/coming-soon.svg",
+      image: null,
       name: { vi: "Tươi Trẻ Rạng Ngời", en: "Radiant Red", zh: "红润焕彩" },
       ingredients: {
         vi: "Cà rốt, cà chua, củ dền, táo, cần tây, cam",
@@ -310,7 +310,7 @@
       category: "juice",
       status: "coming",
       price: null,
-      image: "assets/products/coming-soon.svg",
+      image: null,
       name: { vi: "Sắc Vóc Tuyệt Mỹ", en: "Lean Green Detox", zh: "清绿轻盈" },
       ingredients: {
         vi: "Bó xôi, dưa leo, ổi, cần tây",
@@ -361,6 +361,67 @@
     },
   ];
 
+  // Use the newly supplied source files directly. No product image is
+  // re-encoded, cropped, recolored, sharpened, or otherwise pixel-edited.
+  // The scale/offset values come from deterministic subject-bound measurements
+  // and are applied only by CSS at render time to align visual heights/baselines.
+  const updatedProductPresentation = {
+    S01: { image: "hinh_san_pham/18_S01_GONBUNGNHETENH.jpg", scale: 0.9525, y: "0.26%" },
+    S02: { image: "hinh_san_pham/10_S02_DA SÁNG DÁNG GỌN.jpg", scale: 0.954, y: "-0.14%" },
+    S03: { image: "hinh_san_pham/17_S03_ THAI DOC THANH LOC.jpg", scale: 0.9215, y: "1.36%" },
+    S04: { image: "hinh_san_pham/2_S04_EO THON CỰC CHILL.jpg", scale: 0.9173, y: "3.20%" },
+    S05: { image: "hinh_san_pham/19_S05_NO LÂU BỀN BỈ.jpg", scale: 1.0061, y: "-1.79%" },
+    S06: { image: "hinh_san_pham/16_S06_NO LÀNH THANH DÁNG.jpg", scale: 0.9577, y: "1.54%" },
+    S07: { image: "hinh_san_pham/5_S07_BEN SUC TON DANG .jpg", scale: 0.8833, y: "1.05%" },
+    S08: { image: "hinh_san_pham/7_S08_TRA XANH THANH LOC.jpg", scale: 0.9809, y: "-1.79%" },
+    S09: { image: "hinh_san_pham/13_S09_HỒNG HÀO RẠNG RỠ.jpg", scale: 0.9777, y: "-1.71%" },
+    S10: { image: "hinh_san_pham/11_S10_TOẢ SÁNG XUẤT THẦN.jpg", scale: 0.9913, y: "-0.16%" },
+    S11: { image: "hinh_san_pham/6_S11_DA MƯỚT MỊN MÀNG.jpg", scale: 0.9371, y: "-0.91%" },
+    S12: { image: "hinh_san_pham/S12_DUONG DANG EM BUNG.png", scale: 0.9537, y: "-0.93%" },
+    J01: { image: "hinh_san_pham/8_J01_DÁNG THON CỰC PHẨM.jpg", scale: 1.0027, y: "-1.50%" },
+    J02: { image: "hinh_san_pham/J01_TAO KHOE DEP DA.png", scale: 1.0108, y: "-0.34%" },
+    J03: { image: "hinh_san_pham/J03_TIÊN NỮ TỶ TỶ.png", scale: 0.9723, y: "-1.32%" },
+    J04: { image: "hinh_san_pham/3_J04_TƯƠI TRẺ RẠNG NGỜI.jpg", scale: 0.957, y: "-0.28%" },
+    J05: { image: "hinh_san_pham/4_SAC VOC TUYET MY.jpg", scale: 0.9436, y: "0.79%" },
+    J06: { image: "hinh_san_pham/J06_CẦN TÂY THANH MÁT.png", scale: 0.9349, y: "-0.36%" },
+    J07: { image: "hinh_san_pham/14_Cần tây chân ái.jpg", scale: 0.9723, y: "0.76%" },
+  };
+
+  const productGoals = {
+    S01: ["shape", "cleanse", "refresh"],
+    S02: ["shape", "beauty", "refresh"],
+    S03: ["cleanse", "refresh"],
+    S04: ["shape", "refresh"],
+    S05: ["energy"],
+    S06: ["shape"],
+    S07: ["shape", "energy"],
+    S08: ["cleanse", "refresh"],
+    S09: ["beauty", "energy"],
+    S10: ["beauty", "energy"],
+    S11: ["beauty", "refresh"],
+    S12: ["shape", "energy"],
+    J01: ["shape", "refresh"],
+    J02: ["beauty"],
+    J03: ["beauty", "energy"],
+    J04: ["beauty"],
+    J05: ["shape", "beauty", "cleanse", "refresh"],
+    J06: ["cleanse", "refresh"],
+    J07: ["cleanse", "refresh"],
+  };
+
+  products.forEach((product) => {
+    const presentation = updatedProductPresentation[product.code];
+    if (!presentation) {
+      return;
+    }
+
+    product.image = presentation.image;
+    product.status = "available";
+    product.displayScale = presentation.scale;
+    product.displayY = presentation.y;
+    product.goals = productGoals[product.code] ?? [];
+  });
+
   const categoryLabels = {
     smoothie: { vi: "Sinh tố", en: "Smoothie", zh: "果蔬昔" },
     juice: { vi: "Nước ép", en: "Juice", zh: "鲜榨果蔬汁" },
@@ -391,9 +452,9 @@
       zh: "330 毫升 · 饮用前摇匀 · 0–4°C 冷藏 · 开封后 24 小时内饮用为佳。",
     },
     coming: {
-      vi: "Sản phẩm đang chuẩn bị ra mắt. Hình trong menu là minh họa; ngày bán và giá sẽ được cập nhật sau.",
-      en: "This product is being prepared for launch. The menu image is illustrative; availability and price will be updated later.",
-      zh: "该产品正在筹备上市。菜单图片为示意图，开售日期与价格将稍后更新。",
+      vi: "Sản phẩm đang chuẩn bị ra mắt. Ảnh placeholder được dùng tạm; ngày bán và giá sẽ được cập nhật sau.",
+      en: "This product is being prepared for launch. A temporary placeholder is shown; availability and price will be updated later.",
+      zh: "该产品正在筹备上市，当前显示临时占位图；开售日期与价格将稍后更新。",
     },
   };
 
@@ -410,17 +471,38 @@
     },
   };
 
-  const languageButtons = document.querySelectorAll(".language-button");
+  const resultLabels = {
+    vi: (count) => `${count} sản phẩm phù hợp`,
+    en: (count) => `${count} matching ${count === 1 ? "product" : "products"}`,
+    zh: (count) => `${count} 款符合条件的产品`,
+  };
+
+  const groupCountLabels = {
+    vi: (count) => `${count} sản phẩm`,
+    en: (count) => `${count} ${count === 1 ? "product" : "products"}`,
+    zh: (count) => `${count} 款产品`,
+  };
+
   const sortButtons = document.querySelectorAll(".menu-sort-button");
+  const categoryFilterButtons = document.querySelectorAll("[data-category-filter]");
+  const goalFilterButtons = document.querySelectorAll("[data-goal-filter]");
   const descriptionMeta = document.querySelector('meta[name="description"]');
   const smoothieList = document.querySelector("#smoothie-list");
   const juiceList = document.querySelector("#juice-list");
+  const smoothieGroup = document.querySelector("#smoothie-group");
+  const juiceGroup = document.querySelector("#juice-group");
+  const smoothieCount = document.querySelector("#smoothie-count");
+  const juiceCount = document.querySelector("#juice-count");
+  const filterStatus = document.querySelector("#menu-filter-status");
+  const filterEmpty = document.querySelector("#menu-empty");
+  const filterReset = document.querySelector("#menu-filter-reset");
+  const backToTop = document.querySelector("#back-to-top");
   const productDialog = document.querySelector("#product-dialog");
   const productDialogImage = document.querySelector("#product-dialog-image");
   const productDialogCategory = document.querySelector("#product-dialog-category");
   const productDialogCode = document.querySelector("#product-dialog-code");
   const productDialogName = document.querySelector("#product-dialog-name");
-  const productDialogPrice = document.querySelector("#product-dialog-price");
+
   const productDialogDescription = document.querySelector("#product-dialog-description");
   const productDialogIngredientsLabel = document.querySelector(
     "#product-dialog-ingredients-label",
@@ -430,9 +512,10 @@
   const productDialogPrimary = document.querySelector("#product-dialog-primary");
   const dialogCloseButtons = document.querySelectorAll("[data-dialog-close]");
   const year = document.querySelector("#year");
-
-  let currentLanguage = "vi";
+  let currentLanguage = window.MorningGreenCommon?.getLanguage() ?? "vi";
   let activeSort = "newest";
+  let activeCategory = "all";
+  let activeGoal = "all";
   let activeProduct = null;
   let lastDetailsButton = null;
 
@@ -454,16 +537,13 @@
     });
   };
 
-  const formatPrice = (price) =>
-    typeof price === "number" ? new Intl.NumberFormat("vi-VN").format(price) + "đ" : "";
-
   const createProductCard = (product, originalOrder) => {
     const item = document.createElement("li");
     item.dataset.productCode = product.code;
     item.dataset.category = product.category;
     item.dataset.status = product.status;
+    item.dataset.goals = product.goals.join(" ");
     item.dataset.originalOrder = String(originalOrder);
-    item.dataset.price = product.price === null ? "" : String(product.price);
     item.classList.toggle("is-coming-soon", product.status === "coming");
 
     const media = document.createElement("div");
@@ -471,19 +551,23 @@
 
     const image = document.createElement("img");
     image.className = "menu-item-image";
-    image.src = product.image;
+    image.src = product.image
+      ? `${product.image}?v=${product.code === "J02" || product.code === "S12" ? "2" : "1"}`
+      : "assets/products/coming-soon.svg";
     image.alt = "";
     image.width = 820;
     image.height = 1093;
     image.loading = originalOrder < 4 ? "eager" : "lazy";
     image.decoding = "async";
+    image.style.setProperty("--product-scale", String(product.displayScale ?? 1));
+    image.style.setProperty("--product-y", product.displayY ?? "0%");
     media.append(image);
 
     if (product.status === "coming") {
-      const status = document.createElement("span");
-      status.className = "menu-status-badge";
-      appendLocalizedText(status, statusLabels);
-      media.append(status);
+      const statusBadge = document.createElement("span");
+      statusBadge.className = "menu-status-badge";
+      appendLocalizedText(statusBadge, statusLabels);
+      media.append(statusBadge);
     }
 
     const name = document.createElement("span");
@@ -491,22 +575,12 @@
     name.dataset.code = product.code;
     appendLocalizedText(name, product.name);
 
-    const price = document.createElement("span");
-    price.className = "menu-price";
-
-    if (product.status === "coming") {
-      price.classList.add("is-coming-label");
-      appendLocalizedText(price, statusLabels);
-    } else {
-      price.textContent = formatPrice(product.price);
-    }
-
     const detailsButton = document.createElement("button");
     detailsButton.className = "menu-card-open";
     detailsButton.type = "button";
     detailsButton.addEventListener("click", () => openProductDetails(product, detailsButton));
 
-    item.append(media, name, price, detailsButton);
+    item.append(media, name, detailsButton);
     return item;
   };
 
@@ -523,9 +597,47 @@
 
   const getItemName = (item) => getProductForItem(item)?.name[currentLanguage] ?? "";
 
-  const getItemPrice = (item) => {
-    const rawPrice = Number(item.dataset.price);
-    return Number.isFinite(rawPrice) && item.dataset.price ? rawPrice : Number.POSITIVE_INFINITY;
+  const setPressedState = (buttons, dataKey, value) => {
+    buttons.forEach((button) => {
+      const isActive = button.dataset[dataKey] === value;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+  };
+
+  const applyFilters = () => {
+    let totalVisible = 0;
+    let smoothieVisible = 0;
+    let juiceVisible = 0;
+
+    menuItems.forEach((item) => {
+      const categoryMatches = activeCategory === "all" || item.dataset.category === activeCategory;
+      const goals = item.dataset.goals.split(" ").filter(Boolean);
+      const goalMatches = activeGoal === "all" || goals.includes(activeGoal);
+      const isVisible = categoryMatches && goalMatches;
+
+      item.hidden = !isVisible;
+      if (!isVisible) return;
+
+      totalVisible += 1;
+      if (item.dataset.category === "smoothie") smoothieVisible += 1;
+      if (item.dataset.category === "juice") juiceVisible += 1;
+    });
+
+    smoothieGroup.hidden = smoothieVisible === 0;
+    juiceGroup.hidden = juiceVisible === 0;
+    filterEmpty.hidden = totalVisible !== 0;
+    filterStatus.textContent = resultLabels[currentLanguage](totalVisible);
+    smoothieCount.textContent = groupCountLabels[currentLanguage](smoothieVisible);
+    juiceCount.textContent = groupCountLabels[currentLanguage](juiceVisible);
+    setPressedState(categoryFilterButtons, "categoryFilter", activeCategory);
+    setPressedState(goalFilterButtons, "goalFilter", activeGoal);
+  };
+
+  const resetFilters = () => {
+    activeCategory = "all";
+    activeGoal = "all";
+    applyFilters();
   };
 
   const updateDetailsButtonLabels = () => {
@@ -545,7 +657,6 @@
       !productDialogCategory ||
       !productDialogCode ||
       !productDialogName ||
-      !productDialogPrice ||
       !productDialogDescription ||
       !productDialogIngredientsLabel ||
       !productDialogIngredients ||
@@ -558,19 +669,29 @@
     const isComing = product.status === "coming";
     const statusText = statusLabels[currentLanguage];
 
-    productDialogImage.src = product.image;
+    if (product.image) {
+      productDialogImage.src = `${product.image}?v=${product.code === "J02" || product.code === "S12" ? "2" : "1"}`;
+    } else {
+      productDialogImage.removeAttribute("src");
+    }
+    productDialogImage.hidden = !product.image;
     productDialogImage.alt = product.name[currentLanguage] + " — Morning Green";
+    productDialogImage.style.setProperty("--product-scale", String(product.displayScale ?? 1));
+    productDialogImage.style.setProperty("--product-y", product.displayY ?? "0%");
     productDialogCategory.textContent = categoryLabels[product.category][currentLanguage];
     productDialogCode.textContent = product.code + (isComing ? " · " + statusText : "");
     productDialogCode.classList.toggle("is-coming", isComing);
     productDialogName.textContent = product.name[currentLanguage];
-    productDialogPrice.textContent = isComing ? statusText : formatPrice(product.price);
-    productDialogPrice.classList.toggle("is-coming", isComing);
     productDialogDescription.textContent = product.description[currentLanguage];
     productDialogIngredientsLabel.textContent = ingredientsLabels[currentLanguage];
     productDialogIngredients.textContent = product.ingredients[currentLanguage];
     productDialogNote.textContent = notes[product.status][currentLanguage];
-    productDialogPrimary.textContent = primaryActionLabels[product.status][currentLanguage] + " ↗";
+    productDialogPrimary.textContent =
+      `${primaryActionLabels[product.status][currentLanguage]} · ${product.code} ↗`;
+    productDialogPrimary.setAttribute(
+      "aria-label",
+      `${primaryActionLabels[product.status][currentLanguage]}: ${product.code} — ${product.name[currentLanguage]}`,
+    );
   };
 
   function openProductDetails(product, button) {
@@ -633,11 +754,6 @@
           );
         }
 
-        if (sort === "price-asc" || sort === "price-desc") {
-          const direction = sort === "price-asc" ? 1 : -1;
-          return (getItemPrice(first) - getItemPrice(second)) * direction;
-        }
-
         return Number(first.dataset.originalOrder) - Number(second.dataset.originalOrder);
       });
 
@@ -651,45 +767,54 @@
     });
   };
 
-  const setLanguage = (language) => {
-    const nextLanguage = ["vi", "en", "zh"].includes(language) ? language : "vi";
-    const languageTag = nextLanguage === "zh" ? "zh-Hans" : nextLanguage;
-    const dataSuffix = { vi: "Vi", en: "En", zh: "Zh" }[nextLanguage];
-
+  const updateLanguageDependentContent = (language) => {
+    const nextLanguage = metadata[language] ? language : "vi";
     currentLanguage = nextLanguage;
-    document.documentElement.lang = languageTag;
     document.title = metadata[nextLanguage].title;
     descriptionMeta?.setAttribute("content", metadata[nextLanguage].description);
-
-    languageButtons.forEach((button) => {
-      const isActive = button.dataset.language === nextLanguage;
-      button.classList.toggle("is-active", isActive);
-      button.setAttribute("aria-pressed", String(isActive));
-    });
-
-    document.querySelectorAll("[data-aria-vi]").forEach((element) => {
-      const label = element.dataset["aria" + dataSuffix];
-
-      if (label) {
-        element.setAttribute("aria-label", label);
-      }
-    });
-
     sortMenu(activeSort);
     updateDetailsButtonLabels();
+    applyFilters();
 
     if (productDialog?.open && activeProduct) {
       renderProductDetails(activeProduct);
     }
   };
 
-  languageButtons.forEach((button) => {
-    button.addEventListener("click", () => setLanguage(button.dataset.language));
+  document.addEventListener("morninggreen:languagechange", (event) => {
+    updateLanguageDependentContent(event.detail.language);
   });
 
   sortButtons.forEach((button) => {
     button.addEventListener("click", () => sortMenu(button.dataset.sort));
   });
+
+  categoryFilterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeCategory = button.dataset.categoryFilter;
+      applyFilters();
+    });
+  });
+
+  goalFilterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeGoal = button.dataset.goalFilter;
+      applyFilters();
+    });
+  });
+
+  filterReset?.addEventListener("click", resetFilters);
+
+  const updateBackToTopVisibility = () => {
+    backToTop?.classList.toggle("is-visible", window.scrollY > 520);
+  };
+
+  backToTop?.addEventListener("click", () => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  });
+
+  window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
 
   dialogCloseButtons.forEach((button) => {
     button.addEventListener("click", closeProductDialog);
@@ -716,5 +841,6 @@
     year.textContent = String(new Date().getFullYear());
   }
 
-  setLanguage("vi");
+  updateLanguageDependentContent(currentLanguage);
+  updateBackToTopVisibility();
 })();

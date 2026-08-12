@@ -5,12 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta
       name="description"
-      content="Menu Morning Green gồm 12 món sinh tố và 7 món nước ép; 14 sản phẩm đã có hình ảnh thực tế."
+      content="Menu Morning Green gồm 19 sản phẩm với hình ảnh nhãn chai chính thức."
     >
     <meta name="theme-color" content="#01511e">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Morning Green">
+    <meta property="og:title" content="Morning Green — Menu sinh tố & nước ép">
+    <meta property="og:description" content="Khám phá 19 sản phẩm Morning Green với hình ảnh nhãn chai chính thức.">
+    <meta property="og:image" content="{{SITE_ORIGIN}}/v8/assets/morning-green-hero.webp">
+    <meta property="og:url" content="{{SITE_ORIGIN}}/v8/menu.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Morning Green — Menu sinh tố & nước ép">
+    <meta name="twitter:description" content="Khám phá 19 sản phẩm Morning Green với hình ảnh nhãn chai chính thức.">
+    <meta name="twitter:image" content="{{SITE_ORIGIN}}/v8/assets/morning-green-hero.webp">
     <title>Morning Green — Menu nước</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="menu.js" defer></script>
+    <link rel="icon" type="image/png" href="assets/morning-green-logo-160.png">
+    <link rel="stylesheet" href="styles.css?v=19">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Morning Green",
+        "telephone": "+84 839 761 494",
+        "url": "{{SITE_ORIGIN}}/v8/",
+        "sameAs": [
+          "https://zalo.me/0839761494",
+          "https://www.facebook.com/morninggreenvn",
+          "https://www.instagram.com/morninggreen.vn/"
+        ]
+      }
+    </script>
+    <script src="common.js?v=15" defer></script>
+    <script src="menu.js?v=18" defer></script>
   </head>
   <body class="menu-page">
     <a class="skip-link" href="#drink-menu">
@@ -46,6 +72,39 @@
             </small>
           </span>
         </a>
+
+        <nav class="page-navigation" id="catalog-navigation" aria-label="Primary navigation">
+          <a href="index.html#top">
+            <span class="lang-vi">Trang chủ</span>
+            <span class="lang-en" lang="en">Home</span>
+            <span class="lang-zh" lang="zh-Hans">首页</span>
+          </a>
+          <a class="is-active" href="#drink-menu">
+            <span class="lang-vi">Sản phẩm</span>
+            <span class="lang-en" lang="en">Our Blends</span>
+            <span class="lang-zh" lang="zh-Hans">产品</span>
+          </a>
+          <a href="index.html#contact">
+            <span class="lang-vi">Liên hệ</span>
+            <span class="lang-en" lang="en">Contact</span>
+            <span class="lang-zh" lang="zh-Hans">联系</span>
+          </a>
+        </nav>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-controls="catalog-navigation"
+          aria-expanded="false"
+          aria-label="Mở menu điều hướng"
+          data-aria-vi="Mở menu điều hướng"
+          data-aria-en="Open navigation menu"
+          data-aria-zh="打开导航菜单"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
 
         <div class="language-switcher" role="group" aria-label="Ngôn ngữ / Language / 语言">
           <button
@@ -91,9 +150,9 @@
             </a>
             <p class="menu-kicker">
               <span class="leaf-mark" aria-hidden="true"></span>
-              <span class="lang-vi">14 sản phẩm đã có hình · 5 món sắp ra mắt</span>
-              <span class="lang-en" lang="en">14 products pictured · 5 coming soon</span>
-              <span class="lang-zh" lang="zh-Hans">14 款已有实拍 · 5 款即将推出</span>
+              <span class="lang-vi">19 sản phẩm · hình ảnh nhãn chai chính thức</span>
+              <span class="lang-en" lang="en">19 products · official bottle-label imagery</span>
+              <span class="lang-zh" lang="zh-Hans">19 款产品 · 官方瓶身标签图片</span>
             </p>
             <div class="menu-heading-row">
               <h1 id="menu-title">
@@ -108,6 +167,90 @@
               </p>
             </div>
           </header>
+
+          <section class="menu-filters" aria-labelledby="menu-filter-title">
+            <div class="menu-filter-heading">
+              <h2 id="menu-filter-title">
+                <span class="lang-vi">Tìm món phù hợp</span>
+                <span class="lang-en" lang="en">Find your blend</span>
+                <span class="lang-zh" lang="zh-Hans">查找适合你的饮品</span>
+              </h2>
+              <p id="menu-filter-status" aria-live="polite"></p>
+            </div>
+
+            <div
+              class="menu-filter-row"
+              role="group"
+              aria-label="Lọc theo loại nước / Filter by drink type / 按饮品类型筛选"
+            >
+              <span class="menu-filter-label">
+                <span class="lang-vi">Loại nước</span>
+                <span class="lang-en" lang="en">Drink type</span>
+                <span class="lang-zh" lang="zh-Hans">饮品类型</span>
+              </span>
+              <div class="menu-filter-options">
+                <button class="menu-filter-button is-active" type="button" data-category-filter="all" aria-pressed="true">
+                  <span class="lang-vi">Tất cả</span>
+                  <span class="lang-en" lang="en">All</span>
+                  <span class="lang-zh" lang="zh-Hans">全部</span>
+                </button>
+                <button class="menu-filter-button" type="button" data-category-filter="smoothie" aria-pressed="false">
+                  <span class="lang-vi">Sinh tố</span>
+                  <span class="lang-en" lang="en">Smoothies</span>
+                  <span class="lang-zh" lang="zh-Hans">果蔬昔</span>
+                </button>
+                <button class="menu-filter-button" type="button" data-category-filter="juice" aria-pressed="false">
+                  <span class="lang-vi">Nước ép</span>
+                  <span class="lang-en" lang="en">Juices</span>
+                  <span class="lang-zh" lang="zh-Hans">鲜榨果蔬汁</span>
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="menu-filter-row"
+              role="group"
+              aria-label="Lọc theo nhu cầu / Filter by preference / 按需求筛选"
+            >
+              <span class="menu-filter-label">
+                <span class="lang-vi">Nhu cầu</span>
+                <span class="lang-en" lang="en">Preference</span>
+                <span class="lang-zh" lang="zh-Hans">需求</span>
+              </span>
+              <div class="menu-filter-options">
+                <button class="menu-filter-button is-active" type="button" data-goal-filter="all" aria-pressed="true">
+                  <span class="lang-vi">Tất cả</span>
+                  <span class="lang-en" lang="en">All</span>
+                  <span class="lang-zh" lang="zh-Hans">全部</span>
+                </button>
+                <button class="menu-filter-button" type="button" data-goal-filter="shape" aria-pressed="false">
+                  <span class="lang-vi">Giữ dáng</span>
+                  <span class="lang-en" lang="en">Shape</span>
+                  <span class="lang-zh" lang="zh-Hans">轻盈管理</span>
+                </button>
+                <button class="menu-filter-button" type="button" data-goal-filter="beauty" aria-pressed="false">
+                  <span class="lang-vi">Đẹp da</span>
+                  <span class="lang-en" lang="en">Glow</span>
+                  <span class="lang-zh" lang="zh-Hans">焕亮肌肤</span>
+                </button>
+                <button class="menu-filter-button" type="button" data-goal-filter="cleanse" aria-pressed="false">
+                  <span class="lang-vi">Thanh lọc</span>
+                  <span class="lang-en" lang="en">Cleanse</span>
+                  <span class="lang-zh" lang="zh-Hans">清新净爽</span>
+                </button>
+                <button class="menu-filter-button" type="button" data-goal-filter="energy" aria-pressed="false">
+                  <span class="lang-vi">Năng lượng</span>
+                  <span class="lang-en" lang="en">Energy</span>
+                  <span class="lang-zh" lang="zh-Hans">活力能量</span>
+                </button>
+                <button class="menu-filter-button" type="button" data-goal-filter="refresh" aria-pressed="false">
+                  <span class="lang-vi">Thanh mát</span>
+                  <span class="lang-en" lang="en">Refresh</span>
+                  <span class="lang-zh" lang="zh-Hans">清爽解腻</span>
+                </button>
+              </div>
+            </div>
+          </section>
 
           <div
             class="menu-sort"
@@ -130,16 +273,6 @@
                 <span class="lang-en" lang="en">Name Z → A</span>
                 <span class="lang-zh" lang="zh-Hans">名称 Z → A</span>
               </button>
-              <button class="menu-sort-button" type="button" data-sort="price-asc" aria-pressed="false">
-                <span class="lang-vi">Giá tăng dần</span>
-                <span class="lang-en" lang="en">Price low to high</span>
-                <span class="lang-zh" lang="zh-Hans">价格升序</span>
-              </button>
-              <button class="menu-sort-button" type="button" data-sort="price-desc" aria-pressed="false">
-                <span class="lang-vi">Giá giảm dần</span>
-                <span class="lang-en" lang="en">Price high to low</span>
-                <span class="lang-zh" lang="zh-Hans">价格降序</span>
-              </button>
               <button
                 class="menu-sort-button is-active"
                 type="button"
@@ -154,44 +287,52 @@
           </div>
 
           <div class="menu-groups">
-            <section class="menu-group" aria-labelledby="smoothie-title">
+            <section class="menu-group" id="smoothie-group" aria-labelledby="smoothie-title">
               <header class="menu-group-header">
                 <h2 id="smoothie-title">
                   <span class="lang-vi">Sinh tố</span>
                   <span class="lang-en" lang="en">Smoothies</span>
                   <span class="lang-zh" lang="zh-Hans">果蔬昔</span>
                 </h2>
-                <span class="menu-count">
-                  <span class="lang-vi">12 món · 2 sắp ra mắt</span>
-                  <span class="lang-en" lang="en">12 items · 2 coming soon</span>
-                  <span class="lang-zh" lang="zh-Hans">12 款 · 2 款即将推出</span>
+                <span class="menu-count" id="smoothie-count">
+                  <span class="lang-vi">12 sản phẩm</span>
+                  <span class="lang-en" lang="en">12 products</span>
+                  <span class="lang-zh" lang="zh-Hans">12 款产品</span>
                 </span>
               </header>
               <ol class="menu-list" id="smoothie-list"></ol>
             </section>
 
-            <section class="menu-group" aria-labelledby="juice-title">
+            <section class="menu-group" id="juice-group" aria-labelledby="juice-title">
               <header class="menu-group-header">
                 <h2 id="juice-title">
                   <span class="lang-vi">Nước ép</span>
                   <span class="lang-en" lang="en">Juices</span>
                   <span class="lang-zh" lang="zh-Hans">鲜榨果蔬汁</span>
                 </h2>
-                <span class="menu-count">
-                  <span class="lang-vi">7 món · 3 sắp ra mắt</span>
-                  <span class="lang-en" lang="en">7 items · 3 coming soon</span>
-                  <span class="lang-zh" lang="zh-Hans">7 款 · 3 款即将推出</span>
+                <span class="menu-count" id="juice-count">
+                  <span class="lang-vi">7 sản phẩm</span>
+                  <span class="lang-en" lang="en">7 products</span>
+                  <span class="lang-zh" lang="zh-Hans">7 款产品</span>
                 </span>
               </header>
               <ol class="menu-list" id="juice-list"></ol>
             </section>
           </div>
 
-          <p class="menu-disclaimer">
-            <span class="lang-vi">Tên và thành phần được đối chiếu từ bộ nhãn chính thức. Giá hiện là giá mẫu; vui lòng liên hệ để xác nhận.</span>
-            <span class="lang-en" lang="en">Names and ingredients follow the official labels. Prices are samples; please contact us to confirm.</span>
-            <span class="lang-zh" lang="zh-Hans">品名与配料依据正式标签；当前价格为示例，请联系我们确认。</span>
-          </p>
+          <div class="menu-empty" id="menu-empty" hidden>
+            <p>
+              <span class="lang-vi">Chưa có món phù hợp với hai bộ lọc này.</span>
+              <span class="lang-en" lang="en">No drinks match these two filters yet.</span>
+              <span class="lang-zh" lang="zh-Hans">暂无符合这两个筛选条件的饮品。</span>
+            </p>
+            <button type="button" id="menu-filter-reset">
+              <span class="lang-vi">Xem tất cả sản phẩm</span>
+              <span class="lang-en" lang="en">View all products</span>
+              <span class="lang-zh" lang="zh-Hans">查看全部产品</span>
+            </button>
+          </div>
+
         </div>
       </section>
 
@@ -261,7 +402,12 @@
               <span class="product-dialog-code" id="product-dialog-code"></span>
             </div>
             <h2 id="product-dialog-name"></h2>
-            <p class="product-dialog-price" id="product-dialog-price"></p>
+
+            <p class="product-dialog-section-label" id="product-dialog-description-label">
+              <span class="lang-vi">Hương vị</span>
+              <span class="lang-en" lang="en">Taste profile</span>
+              <span class="lang-zh" lang="zh-Hans">风味介绍</span>
+            </p>
             <p class="product-dialog-description" id="product-dialog-description"></p>
             <div class="product-dialog-ingredients-block">
               <p class="product-dialog-ingredients-label" id="product-dialog-ingredients-label"></p>
@@ -287,6 +433,21 @@
         </div>
       </div>
     </dialog>
+
+    <button
+      class="back-to-top"
+      id="back-to-top"
+      type="button"
+      aria-label="Lên đầu trang"
+      data-aria-vi="Lên đầu trang"
+      data-aria-en="Back to top"
+      data-aria-zh="返回顶部"
+    >
+      <span aria-hidden="true">↑</span>
+      <span class="lang-vi">Lên đầu</span>
+      <span class="lang-en" lang="en">Top</span>
+      <span class="lang-zh" lang="zh-Hans">顶部</span>
+    </button>
 
     <footer class="site-footer">
       <div class="container footer-inner">

@@ -8,12 +8,39 @@
       content="Xem menu sinh tố, nước ép và liên hệ Morning Green qua các kênh chính thức."
     >
     <meta name="theme-color" content="#01511e">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Morning Green">
+    <meta property="og:title" content="Morning Green — Sinh tố rau tươi & nước ép">
+    <meta property="og:description" content="Sinh tố và nước ép Morning Green làm từ nguyên liệu thật, tươi ngon mỗi ngày.">
+    <meta property="og:image" content="{{SITE_ORIGIN}}/v8/assets/morning-green-hero.webp">
+    <meta property="og:url" content="{{SITE_ORIGIN}}/v8/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Morning Green — Sinh tố rau tươi & nước ép">
+    <meta name="twitter:description" content="Sinh tố và nước ép Morning Green làm từ nguyên liệu thật, tươi ngon mỗi ngày.">
+    <meta name="twitter:image" content="{{SITE_ORIGIN}}/v8/assets/morning-green-hero.webp">
     <title>Morning Green — Menu nước &amp; liên hệ</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <link rel="icon" type="image/png" href="assets/morning-green-logo-160.png">
+    <link rel="stylesheet" href="styles.css?v=16">
+    <link rel="stylesheet" href="hero.css?v=17">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Morning Green",
+        "telephone": "+84 839 761 494",
+        "url": "{{SITE_ORIGIN}}/v8/",
+        "sameAs": [
+          "https://zalo.me/0839761494",
+          "https://www.facebook.com/morninggreenvn",
+          "https://www.instagram.com/morninggreen.vn/"
+        ]
+      }
+    </script>
+    <script src="common.js?v=15" defer></script>
+    <script src="script.js?v=15" defer></script>
   </head>
   <body>
-    <a class="skip-link" href="#contact-main">
+    <a class="skip-link" href="#contact">
       <span class="lang-vi">Đi đến thông tin liên hệ</span>
       <span class="lang-en" lang="en">Skip to contact information</span>
       <span class="lang-zh" lang="zh-Hans">跳至联系信息</span>
@@ -23,7 +50,7 @@
       <div class="container header-inner">
         <a
           class="brand"
-          href="#top"
+          href="index.html#top"
           aria-label="Morning Green — trang chủ"
           data-aria-vi="Morning Green — trang chủ"
           data-aria-en="Morning Green — home"
@@ -46,6 +73,39 @@
             </small>
           </span>
         </a>
+
+        <nav class="hero-navigation" id="hero-navigation" aria-label="Primary navigation">
+          <a class="is-active" href="#top">
+            <span class="lang-vi">Trang chủ</span>
+            <span class="lang-en" lang="en">Home</span>
+            <span class="lang-zh" lang="zh-Hans">首页</span>
+          </a>
+          <a href="menu.html">
+            <span class="lang-vi">Sản phẩm</span>
+            <span class="lang-en" lang="en">Our Blends</span>
+            <span class="lang-zh" lang="zh-Hans">产品</span>
+          </a>
+          <a href="#contact">
+            <span class="lang-vi">Liên hệ</span>
+            <span class="lang-en" lang="en">Contact</span>
+            <span class="lang-zh" lang="zh-Hans">联系</span>
+          </a>
+        </nav>
+
+        <button
+          class="nav-toggle hero-nav-toggle"
+          type="button"
+          aria-controls="hero-navigation"
+          aria-expanded="false"
+          aria-label="Mở menu điều hướng"
+          data-aria-vi="Mở menu điều hướng"
+          data-aria-en="Open navigation menu"
+          data-aria-zh="打开导航菜单"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
 
         <div class="language-switcher" role="group" aria-label="Ngôn ngữ / Language / 语言">
           <button
@@ -80,7 +140,132 @@
     </header>
 
     <main id="contact-main">
-      <section class="contact-landing" id="top" aria-labelledby="page-title">
+      <section class="new-hero" id="top" aria-labelledby="hero-title">
+        <div class="new-hero-shade" aria-hidden="true"></div>
+
+        <div class="new-hero-copy">
+          <p class="new-hero-eyebrow">
+            <span aria-hidden="true"></span>
+            <span class="lang-vi">Morning Green – sinh tố rau tươi và nước ép rau củ từ nguyên liệu chọn lọc, phối vị cân bằng, ưu tiên rau và chất xơ cho nhịp sống hiện đại.</span>
+            <span class="lang-en" lang="en">Morning Green – fresh vegetable smoothies and cold-pressed juices from selected ingredients, balanced for modern life with a focus on greens and fiber.</span>
+            <span class="lang-zh" lang="zh-Hans">Morning Green – 甄选食材制作的新鲜蔬果冰沙和蔬菜果汁，配方均衡，优先蔬菜与膳食纤维，适合现代生活节奏。</span>
+          </p>
+
+          <h1 id="hero-title">
+            <span class="lang-vi">
+              <span class="new-hero-title-line">Không thêm đường.</span>
+              <span class="new-hero-title-line">Không chất bảo quản.</span>
+              <span class="new-hero-title-line">Tươi mới mỗi ngày.</span>
+            </span>
+            <span class="lang-en" lang="en">
+              <span class="new-hero-title-line">No added sugar.</span>
+              <span class="new-hero-title-line">No preservatives.</span>
+              <span class="new-hero-title-line">Fresh every day.</span>
+            </span>
+            <span class="lang-zh" lang="zh-Hans">
+              <span class="new-hero-title-line">不加糖。</span>
+              <span class="new-hero-title-line">不含防腐剂。</span>
+              <span class="new-hero-title-line">每日新鲜。</span>
+            </span>
+          </h1>
+
+          <p class="new-hero-description">
+            <span class="lang-vi">
+              Freshness, Refined.<br>
+              Tươi ngon. Trọn vị lành.
+            </span>
+            <span class="lang-en" lang="en">
+              Freshness, Refined.<br>
+              Pure taste, wholesome satisfaction.
+            </span>
+            <span class="lang-zh" lang="zh-Hans">
+              清新，精致。<br>
+              鲜美滋养，满载健康。
+            </span>
+          </p>
+
+          <a class="new-hero-cta" href="menu.html">
+            <span>
+              <span class="lang-vi">Xem Menu</span>
+              <span class="lang-en" lang="en">View Menu</span>
+              <span class="lang-zh" lang="zh-Hans">查看菜单</span>
+            </span>
+            <span class="new-hero-cta-arrow" aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <aside class="new-hero-socials" aria-label="Follow Morning Green">
+          <span class="new-hero-follow-label">FOLLOW US</span>
+          <span class="new-hero-social-line" aria-hidden="true"></span>
+          <a href="https://www.instagram.com/morninggreen.vn/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <span class="new-social-icon new-social-instagram" aria-hidden="true"></span>
+          </a>
+          <a href="https://www.facebook.com/morninggreenvn" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <span class="new-social-icon new-social-facebook" aria-hidden="true"></span>
+          </a>
+        </aside>
+
+        <div class="new-hero-mobile-product" aria-hidden="true"></div>
+      </section>
+
+      <div class="section-divider" aria-hidden="true">
+        <div class="section-divider-track">
+          <div class="section-divider-group">
+            <span class="section-divider-item">
+              <span class="lang-vi">Không thêm đường</span>
+              <span class="lang-en" lang="en">No added sugar</span>
+              <span class="lang-zh" lang="zh-Hans">不加糖</span>
+            </span>
+            <span class="section-divider-leaf"></span>
+            <span class="section-divider-item">
+              <span class="lang-vi">Không chất bảo quản</span>
+              <span class="lang-en" lang="en">No preservatives</span>
+              <span class="lang-zh" lang="zh-Hans">不含防腐剂</span>
+            </span>
+            <span class="section-divider-leaf"></span>
+            <span class="section-divider-item">
+              <span class="lang-vi">Tươi mới mỗi ngày</span>
+              <span class="lang-en" lang="en">Fresh every day</span>
+              <span class="lang-zh" lang="zh-Hans">每日新鲜</span>
+            </span>
+            <span class="section-divider-leaf"></span>
+            <span class="section-divider-item">
+              <span class="lang-vi">Ưu tiên rau &amp; chất xơ</span>
+              <span class="lang-en" lang="en">Greens &amp; fiber first</span>
+              <span class="lang-zh" lang="zh-Hans">优先蔬菜与膳食纤维</span>
+            </span>
+            <span class="section-divider-leaf"></span>
+          </div>
+          <div class="section-divider-group">
+            <span class="section-divider-item">
+              <span class="lang-vi">Không thêm đường</span>
+              <span class="lang-en" lang="en">No added sugar</span>
+              <span class="lang-zh" lang="zh-Hans">不加糖</span>
+            </span>
+            <span class="section-divider-leaf"></span>
+            <span class="section-divider-item">
+              <span class="lang-vi">Không chất bảo quản</span>
+              <span class="lang-en" lang="en">No preservatives</span>
+              <span class="lang-zh" lang="zh-Hans">不含防腐剂</span>
+            </span>
+            <span class="section-divider-leaf"></span>
+            <span class="section-divider-item">
+              <span class="lang-vi">Tươi mới mỗi ngày</span>
+              <span class="lang-en" lang="en">Fresh every day</span>
+              <span class="lang-zh" lang="zh-Hans">每日新鲜</span>
+            </span>
+            <span class="section-divider-leaf"></span>
+            <span class="section-divider-item">
+              <span class="lang-vi">Ưu tiên rau &amp; chất xơ</span>
+              <span class="lang-en" lang="en">Greens &amp; fiber first</span>
+              <span class="lang-zh" lang="zh-Hans">优先蔬菜与膳食纤维</span>
+            </span>
+            <span class="section-divider-leaf"></span>
+          </div>
+        </div>
+      </div>
+
+      <section class="contact-landing" id="contact" aria-labelledby="page-title">
         <div class="container landing-grid">
           <div class="brand-message">
             <p class="eyebrow">
